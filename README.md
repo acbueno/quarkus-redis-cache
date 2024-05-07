@@ -1,56 +1,28 @@
-# quarkus-redis-cache
+# Quarkus Redis Cache
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Este é um exemplo simples de como usar o Redis como um mecanismo de cache em um aplicativo Quarkus.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Pré-requisitos
 
-## Running the application in dev mode
+- Java 11 ou superior instalado
+- Docker e Docker Compose (opcional, apenas se você quiser executar o Redis localmente)
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
-```
+## Como usar
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+1. Clone este repositório: `git clone https://github.com/acbueno/quarkus-redis-cache.git`
+2. Navegue até o diretório do projeto: `cd quarkus-redis-cache`
+3. Execute o Redis usando Docker Compose (opcional): `docker-compose up -d`
+4. Execute o aplicativo Quarkus: `./mvnw compile quarkus:dev`
+5. Acesse `http://localhost:8080/cache` para ver o cache sendo utilizado.
 
-## Packaging and running the application
+## Configuração do Redis
 
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+O Redis é configurado usando as propriedades do aplicativo no arquivo `application.properties`. Certifique-se de ajustar as configurações conforme necessário para o seu ambiente.
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+## Contribuição
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
+Sinta-se à vontade para contribuir com novas funcionalidades, correções de bugs ou melhorias de código. Basta enviar um pull request!
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+## Licença
 
-## Creating a native executable
-
-You can create a native executable using: 
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/quarkus-redis-cache-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Provided Code
-
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
